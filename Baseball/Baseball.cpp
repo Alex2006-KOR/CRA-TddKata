@@ -10,8 +10,10 @@ struct GuessResult {
 
 class Baseball {
 public:
-	explicit Baseball(const string& question) 
-		: question(question) {}
+	explicit Baseball(const string& _question) {
+		assertIllegalArgument(_question);
+		question = _question;
+	}
 
 	GuessResult guess(const string& guessNumber) {
 		assertIllegalArgument(guessNumber);
@@ -28,8 +30,7 @@ private:
 	int getStrikes(const string& guessNumber) {
 		int strikes = 0;
 		for (int cIdx = 0; cIdx < guessNumber.length(); cIdx++)
-			if (guessNumber[cIdx] == question[cIdx])
-				strikes++;
+			strikes += (int)(guessNumber[cIdx] == question[cIdx]);
 		return strikes;
 	}
 
@@ -42,23 +43,23 @@ private:
 		return ball;
 	}
 
-	void assertIllegalArgument(const string& guessNumber) {
-		if (guessNumber.length() != 3)
+	void assertIllegalArgument(const string& number) {
+		if (number.length() != 3)
 			throw length_error("Must be three letters.");
 
-		for (char ch : guessNumber) {
+		for (char ch : number) {
 			if (ch >= '0' || ch <= '9') continue;
 			throw invalid_argument("Must be number");
 		}
 
-		if (isDuplicatedNumber(guessNumber))
+		if (isDuplicatedNumber(number))
 			throw invalid_argument("Must be different number");
 	}
 
-	bool isDuplicatedNumber(const string& guessNumber) {
-		if (guessNumber[0] == guessNumber[1] ||
-			guessNumber[1] == guessNumber[2] ||
-			guessNumber[2] == guessNumber[0])
+	bool isDuplicatedNumber(const string& number) {
+		if (number[0] == number[1] ||
+			number[1] == number[2] ||
+			number[2] == number[0])
 			return true;
 		return false;
 	}
