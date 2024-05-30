@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrimeFactors", "PrimeFactors\PrimeFactors.vcxproj", "{15A66132-13E6-4092-A2AC-2B945854235C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrimeFactors-Test", "PrimeFactors-Test\PrimeFactors-Test.vcxproj", "{7A4E6A70-366B-4724-9974-6599B19A8256}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "솔루션 항목", "솔루션 항목", "{466261C9-700F-4D3E-B276-AE45DEF9AC33}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15A66132-13E6-4092-A2AC-2B945854235C}.Debug|x64.ActiveCfg = Debug|x64
+		{15A66132-13E6-4092-A2AC-2B945854235C}.Debug|x64.Build.0 = Debug|x64
+		{15A66132-13E6-4092-A2AC-2B945854235C}.Debug|x86.ActiveCfg = Debug|Win32
+		{15A66132-13E6-4092-A2AC-2B945854235C}.Debug|x86.Build.0 = Debug|Win32
+		{15A66132-13E6-4092-A2AC-2B945854235C}.Release|x64.ActiveCfg = Release|x64
+		{15A66132-13E6-4092-A2AC-2B945854235C}.Release|x64.Build.0 = Release|x64
+		{15A66132-13E6-4092-A2AC-2B945854235C}.Release|x86.ActiveCfg = Release|Win32
+		{15A66132-13E6-4092-A2AC-2B945854235C}.Release|x86.Build.0 = Release|Win32
+		{7A4E6A70-366B-4724-9974-6599B19A8256}.Debug|x64.ActiveCfg = Debug|x64
+		{7A4E6A70-366B-4724-9974-6599B19A8256}.Debug|x64.Build.0 = Debug|x64
+		{7A4E6A70-366B-4724-9974-6599B19A8256}.Debug|x86.ActiveCfg = Debug|Win32
+		{7A4E6A70-366B-4724-9974-6599B19A8256}.Debug|x86.Build.0 = Debug|Win32
+		{7A4E6A70-366B-4724-9974-6599B19A8256}.Release|x64.ActiveCfg = Release|x64
+		{7A4E6A70-366B-4724-9974-6599B19A8256}.Release|x64.Build.0 = Release|x64
+		{7A4E6A70-366B-4724-9974-6599B19A8256}.Release|x86.ActiveCfg = Release|Win32
+		{7A4E6A70-366B-4724-9974-6599B19A8256}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B1DE902-C7D8-4D21-B5B4-63142437DD28}
+	EndGlobalSection
+EndGlobal
