@@ -18,7 +18,15 @@ public:
 
 		if(guessNumber == question)
 			return { true, 3, 0 };
-		return { false, 0, 0 };
+
+		int strikes = 0, ball = 0;
+
+		for (int cIdx = 0; cIdx < guessNumber.length(); cIdx++) {
+			if (guessNumber[cIdx] == question[cIdx])
+				strikes++;
+		}
+
+		return { false, strikes, 0 };
 	}
 
 private:
