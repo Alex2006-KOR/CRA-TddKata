@@ -4,5 +4,7 @@
 using namespace std;
 
 TEST(PrimeFactors, PrimeTest) {
-	EXPECT_EQ(1, 1);
+	PrimeFactor primeFactor;
+	vector<int> expected = {};
+	EXPECT_EQ(expected, primeFactor.of(1));
 }
