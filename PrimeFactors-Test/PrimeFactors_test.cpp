@@ -33,3 +33,8 @@ TEST_F(PrimeFactorsTestFixure, Of6) {
 	vector<int> expected = { 2, 3 };
 	EXPECT_EQ(expected, primeFactor.of(6));
 }
+
+TEST_F(PrimeFactorsTestFixure, Of9) {
+	vector<int> expected = { 3, 3 };
+	EXPECT_EQ(expected, primeFactor.of(9));
+}
