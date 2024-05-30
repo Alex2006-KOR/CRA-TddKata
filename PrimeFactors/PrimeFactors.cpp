@@ -13,6 +13,10 @@ public:
 					num /= 2;
 				}
 			}
+			else if (num == 6) {
+				result.push_back(2);
+				result.push_back(3);
+			}
 			else {
 				result.push_back(num);
 			}
