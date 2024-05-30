@@ -19,18 +19,20 @@ public:
 		if(guessNumber == question)
 			return { true, 3, 0 };
 
-		int strikes = 0, ball = 0;
-
-		for (int cIdx = 0; cIdx < guessNumber.length(); cIdx++) {
-			if (guessNumber[cIdx] == question[cIdx])
-				strikes++;
-		}
-
-		return { false, strikes, 0 };
+		return { false, getStrikes(guessNumber), 0};
 	}
 
 private:
 	string question;
+
+	int getStrikes(const string& guessNumber) {
+		int strikes = 0, ball = 0;
+
+		for (int cIdx = 0; cIdx < guessNumber.length(); cIdx++)
+			if (guessNumber[cIdx] == question[cIdx])
+				strikes++;
+		return strikes;
+	}
 
 	void assertIllegalArgument(const string& guessNumber) {
 		if (guessNumber.length() != 3)
