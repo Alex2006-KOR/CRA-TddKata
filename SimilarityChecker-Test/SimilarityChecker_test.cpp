@@ -35,7 +35,9 @@ TEST_F(SimilarityCheckerTestFixture, DoLengthScoreTest) {
 
 TEST_F(SimilarityCheckerTestFixture, getMaxAlphaScore) {
 	vector<TestVector_t> tv = {
-		{40, "ASD", "DSA"}
+		{40, "ASD", "DSA"},
+		{0, "A", "BB"},
+		{20, "AA", "AAE"}
 	};
 	doALphaTest(tv);
 }
