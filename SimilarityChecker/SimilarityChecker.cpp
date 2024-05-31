@@ -9,6 +9,10 @@ public:
 	}
 
 protected:
+	int getTotalAlpha(string str1, string str2) {
+		return 40;
+	}
+
 	int getLengthScore(string str1, string str2) {
 		int lLen = str1.length();
 		int sLen = str2.length();
