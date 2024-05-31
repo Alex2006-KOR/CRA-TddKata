@@ -11,11 +11,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "솔루션 항목", "솔루�
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		README.md = README.md
+		SimilarityChecker-Test\SimilarityChecker-Test.vcxproj = SimilarityChecker-Test\SimilarityChecker-Test.vcxproj
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Baseball", "Baseball\Baseball.vcxproj", "{1632D593-A969-4863-8AFE-88B54A3B0300}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Baseball-Test", "Baseball-Test\Baseball-Test.vcxproj", "{420F60A0-DFA6-45FE-A378-FD15713F653E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimilarityChecker", "SimilarityChecker\SimilarityChecker.vcxproj", "{3FF20F06-37DE-418E-AA1E-C589ED2AB597}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimilarityChecker-Test", "SimilarityChecker-Test\SimilarityChecker-Test.vcxproj", "{474038EC-94EC-44F2-8A5C-20EBF1B54168}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +62,22 @@ Global
 		{420F60A0-DFA6-45FE-A378-FD15713F653E}.Release|x64.Build.0 = Release|x64
 		{420F60A0-DFA6-45FE-A378-FD15713F653E}.Release|x86.ActiveCfg = Release|Win32
 		{420F60A0-DFA6-45FE-A378-FD15713F653E}.Release|x86.Build.0 = Release|Win32
+		{3FF20F06-37DE-418E-AA1E-C589ED2AB597}.Debug|x64.ActiveCfg = Debug|x64
+		{3FF20F06-37DE-418E-AA1E-C589ED2AB597}.Debug|x64.Build.0 = Debug|x64
+		{3FF20F06-37DE-418E-AA1E-C589ED2AB597}.Debug|x86.ActiveCfg = Debug|Win32
+		{3FF20F06-37DE-418E-AA1E-C589ED2AB597}.Debug|x86.Build.0 = Debug|Win32
+		{3FF20F06-37DE-418E-AA1E-C589ED2AB597}.Release|x64.ActiveCfg = Release|x64
+		{3FF20F06-37DE-418E-AA1E-C589ED2AB597}.Release|x64.Build.0 = Release|x64
+		{3FF20F06-37DE-418E-AA1E-C589ED2AB597}.Release|x86.ActiveCfg = Release|Win32
+		{3FF20F06-37DE-418E-AA1E-C589ED2AB597}.Release|x86.Build.0 = Release|Win32
+		{474038EC-94EC-44F2-8A5C-20EBF1B54168}.Debug|x64.ActiveCfg = Debug|x64
+		{474038EC-94EC-44F2-8A5C-20EBF1B54168}.Debug|x64.Build.0 = Debug|x64
+		{474038EC-94EC-44F2-8A5C-20EBF1B54168}.Debug|x86.ActiveCfg = Debug|Win32
+		{474038EC-94EC-44F2-8A5C-20EBF1B54168}.Debug|x86.Build.0 = Debug|Win32
+		{474038EC-94EC-44F2-8A5C-20EBF1B54168}.Release|x64.ActiveCfg = Release|x64
+		{474038EC-94EC-44F2-8A5C-20EBF1B54168}.Release|x64.Build.0 = Release|x64
+		{474038EC-94EC-44F2-8A5C-20EBF1B54168}.Release|x86.ActiveCfg = Release|Win32
+		{474038EC-94EC-44F2-8A5C-20EBF1B54168}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
