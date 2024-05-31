@@ -22,6 +22,11 @@ public:
 		for (auto& v : tv)
 			EXPECT_EQ(v.expected, getAlphaSocre(v.srcStr, v.dstStr));
 	}
+
+	void doTest(vector<TestVector_t> tv) {
+		for (auto& v : tv)
+			EXPECT_EQ(v.expected, getSimilarityScore(v.srcStr, v.dstStr));
+	}
 };
 
 TEST_F(SimilarityCheckerTestFixture, DoLengthScoreTest) {
@@ -33,11 +38,23 @@ TEST_F(SimilarityCheckerTestFixture, DoLengthScoreTest) {
 	doLengthTest(tv);
 }
 
-TEST_F(SimilarityCheckerTestFixture, getMaxAlphaScore) {
+TEST_F(SimilarityCheckerTestFixture, DoAlphaScoreTest) {
 	vector<TestVector_t> tv = {
 		{40, "ASD", "DSA"},
 		{0, "A", "BB"},
 		{20, "AA", "AAE"}
 	};
 	doALphaTest(tv);
+}
+
+TEST_F(SimilarityCheckerTestFixture, getSimilarityScore) {
+	vector<TestVector_t> tv = {
+		{60, "ABC", "DEF"},
+		{30, "ABCDEF", "GHIK"},
+		{0, "ABCDEF", "GHI"},
+		{100, "ASD", "DSA"},
+		{0, "A", "BB"},
+		{50, "AA", "AAE"}
+	};
+	doTest(tv);
 }

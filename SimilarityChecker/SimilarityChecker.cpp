@@ -9,7 +9,7 @@ using std::vector;
 class SimilarityChecker {
 public:
 	int getSimilarityScore(string str1, string str2) {
-		return getLengthScore(str1, str2);
+		return getLengthScore(str1, str2) + getAlphaSocre(str1, str2);
 	}
 
 protected:
