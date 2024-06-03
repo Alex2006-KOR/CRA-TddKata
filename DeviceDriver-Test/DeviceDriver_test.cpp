@@ -59,3 +59,17 @@ TEST_F(DeviceDriverTestFixture, Write) {
 		.WillRepeatedly(Return(0xFF));
 	pDeviceDriver->write(0x00, 0x00);
 }
+
+TEST_F(DeviceDriverTestFixture, WriteException) {
+	EXPECT_CALL(flashDeviceMock, read)
+		.Times(1)
+		.WillRepeatedly(Return(0x00));
+
+	try {
+		pDeviceDriver->write(0x00, 0x00);
+		FAIL();
+	}
+	catch (exception& e) {
+		cout << e.what() << endl;
+	}
+}
