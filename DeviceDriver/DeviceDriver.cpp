@@ -1,4 +1,5 @@
 #include "DeviceDriver.h"
+#include <stdexcept>
 
 const int READ_REPEATITION_MAX_NUM = 5;
 
@@ -9,7 +10,7 @@ int DeviceDriver::read(long address) {
     int ret = (int)(m_hardware->read(address));
     for (unsigned int readIdx = 0; readIdx < READ_REPEATITION_MAX_NUM - 1; readIdx++) {
         if ((int)(m_hardware->read(address)) != ret) {
-
+            throw std::runtime_error("Read Different value from same Address");
         }
     }
     return ret;

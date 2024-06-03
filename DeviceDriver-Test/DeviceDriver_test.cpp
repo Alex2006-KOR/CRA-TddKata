@@ -38,3 +38,17 @@ TEST_F(DeviceDriverTestFixture, Read5TimesRepetition) {
 		.WillRepeatedly(Return(0x12));
 	pDeviceDriver->read(0x00);
 }
+
+TEST_F(DeviceDriverTestFixture, Read5TimesRepetitionException) {
+	EXPECT_CALL(flashDeviceMock, read)
+		.WillOnce(Return(0x12))
+		.WillRepeatedly(Return(0x34));
+
+	try {
+		int ret = pDeviceDriver->read(0x00);
+		FAIL();
+	}
+	catch (exception& e) {
+		cout << e.what() << endl;
+	}
+}
