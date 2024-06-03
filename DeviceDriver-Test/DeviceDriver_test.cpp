@@ -13,10 +13,23 @@ public:
 	MOCK_METHOD(void, write, (long address, unsigned char data), (override));
 };
 
+class DeviceDriverMock : public DeviceDriver {
+public:
+	FlashMemoryDeviceMock flashDeviceMock;
+
+	DeviceDriverMock()
+		: DeviceDriver(&flashDeviceMock) {}
+
+	MOCK_METHOD(int, read, (long address), (override));
+	MOCK_METHOD(void, write, (long address, int data), ());
+};
+
 class DeviceDriverTestFixture : public testing::Test {
 public:
 	FlashMemoryDeviceMock flashDeviceMock;
 	DeviceDriver *pDeviceDriver;
+
+	DeviceDriverMock deviceDriverMock;
 	Application* pApplication;
 
 protected:
@@ -24,7 +37,7 @@ protected:
 	virtual void SetUp() {
 		std::cout << "\tDeviceDriverTestFixture - SetUp" << std::endl;
 		pDeviceDriver = new DeviceDriver(&flashDeviceMock);
-		pApplication = new Application(pDeviceDriver);
+		pApplication = new Application(&deviceDriverMock);
 	}
 
 	// Á¤¸®
@@ -79,11 +92,16 @@ TEST_F(DeviceDriverTestFixture, WriteException) {
 
 TEST_F(DeviceDriverTestFixture, ApplicationReadAndPrint) {
 	int startAddr = 0x00;
-	int endAddr = 0xFF;
+	int endAddr = 0xF;
 
-	EXPECT_CALL(flashDeviceMock, read)
-		.Times(((endAddr - startAddr)/4 + 1)*5)
+	EXPECT_CALL(deviceDriverMock, read)
+		.Times(((endAddr - startAddr) / 4 + 1))
 		.WillRepeatedly(Return(0x04));
-
 	pApplication->ReadAndPrint(startAddr, endAddr);
+}
+
+TEST_F(DeviceDriverTestFixture, ApplicationWriteAll) {
+	EXPECT_CALL(deviceDriverMock, write)
+		.Times(2);
+	pApplication->WriteAll(0x00);
 }

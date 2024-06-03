@@ -13,5 +13,6 @@ void Application::ReadAndPrint(int startAddr, int endAddr) {
 }
 
 void Application::WriteAll(int value) {
-
+	for (int addr = 0x00; addr <= 0x04; addr += 0x4)
+		pDeviceDriver->write(addr, value);
 }
