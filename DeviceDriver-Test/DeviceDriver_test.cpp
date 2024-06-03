@@ -13,16 +13,6 @@ public:
 	MOCK_METHOD(void, write, (long address, unsigned char data), (override));
 };
 
-
-class DeviceDriverMock : public DeviceDriver {
-public:
-	DeviceDriverMock::DeviceDriverMock(FlashMemoryDevice* hardware)
-		: DeviceDriver(hardware) {}
-
-	MOCK_METHOD(int, read, (long address), ());
-	MOCK_METHOD(void, write, (long address, int data), ());
-};
-
 class DeviceDriverTestFixture : public testing::Test {
 public:
 	FlashMemoryDeviceMock flashDeviceMock;
@@ -93,7 +83,7 @@ TEST_F(DeviceDriverTestFixture, ApplicationReadAndPrint) {
 
 	EXPECT_CALL(flashDeviceMock, read)
 		.Times(((endAddr - startAddr)/4 + 1)*5)
-		.WillRepeatedly(Return(0x00));
+		.WillRepeatedly(Return(0x04));
 
 	pApplication->ReadAndPrint(startAddr, endAddr);
 }
