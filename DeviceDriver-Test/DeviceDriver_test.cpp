@@ -27,10 +27,10 @@ public:
 class DeviceDriverTestFixture : public testing::Test {
 public:
 	FlashMemoryDeviceMock flashDeviceMock;
-	DeviceDriver *pDeviceDriver;
+	DeviceDriver *pDeviceDriver = nullptr;
 
 	DeviceDriverMock deviceDriverMock;
-	Application* pApplication;
+	Application* pApplication = nullptr;
 
 protected:
 	// √ ±‚»≠
