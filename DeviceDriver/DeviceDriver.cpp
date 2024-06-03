@@ -9,6 +9,12 @@ class ReadFailException : public std::exception {
     }
 };
 
+class WriteFailException : public std::exception {
+    char const* what() const override {
+        return "Write address is not empty";
+    }
+};
+
 DeviceDriver::DeviceDriver(FlashMemoryDevice* hardware)
     : m_hardware(hardware) {}
 
@@ -25,5 +31,5 @@ void DeviceDriver::write(long address, int data) {
     if ((int)(m_hardware->read(address)) == 0xFF)
         m_hardware->write(address, (unsigned char)data);
     else
-        throw std::runtime_error("");
+        throw WriteFailException();
 }
