@@ -127,10 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
     <ClInclude Include="DeviceDriver.h" />
     <ClInclude Include="FlashMemoryDevice.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Application.cpp" />
     <ClCompile Include="DeviceDriver.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
