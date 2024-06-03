@@ -2,6 +2,7 @@
 #include "gmock/gmock.h"
 
 #include "DeviceDriver.cpp"
+#include "Application.cpp"
 
 using namespace testing;
 using namespace std;
@@ -10,25 +11,37 @@ class FlashMemoryDeviceMock : public FlashMemoryDevice {
 public:
 	MOCK_METHOD(unsigned char, read, (long address), (override));
 	MOCK_METHOD(void, write, (long address, unsigned char data), (override));
-};	
+};
+
+
+class DeviceDriverMock : public DeviceDriver {
+public:
+	DeviceDriverMock::DeviceDriverMock(FlashMemoryDevice* hardware)
+		: DeviceDriver(hardware) {}
+
+	MOCK_METHOD(int, read, (long address), ());
+	MOCK_METHOD(void, write, (long address, int data), ());
+};
 
 class DeviceDriverTestFixture : public testing::Test {
 public:
 	FlashMemoryDeviceMock flashDeviceMock;
-	DeviceDriver* pDeviceDriver;
+	DeviceDriver *pDeviceDriver;
+	Application* pApplication;
 
 protected:
 	// 초기화
 	virtual void SetUp() {
 		std::cout << "\tDeviceDriverTestFixture - SetUp" << std::endl;
 		pDeviceDriver = new DeviceDriver(&flashDeviceMock);
-		
+		pApplication = new Application(pDeviceDriver);
 	}
 
 	// 정리
 	virtual void TearDown() {
 		std::cout << "\tDeviceDriverTestFixture - TearDown" << std::endl;
 		delete pDeviceDriver;
+		delete pApplication;
 	}
 };
 
@@ -72,4 +85,15 @@ TEST_F(DeviceDriverTestFixture, WriteException) {
 	catch (exception& e) {
 		cout << e.what() << endl;
 	}
+}
+
+TEST_F(DeviceDriverTestFixture, ApplicationReadAndPrint) {
+	int startAddr = 0x00;
+	int endAddr = 0xFF;
+
+	EXPECT_CALL(flashDeviceMock, read)
+		.Times(((endAddr - startAddr)/4 + 1)*5)
+		.WillRepeatedly(Return(0x00));
+
+	pApplication->ReadAndPrint(startAddr, endAddr);
 }
