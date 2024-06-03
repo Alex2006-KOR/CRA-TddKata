@@ -32,7 +32,7 @@ protected:
 	}
 };
 
-TEST_F(DeviceDriverTestFixture, Read) {
+TEST_F(DeviceDriverTestFixture, Read5TimesRepetition) {
 	EXPECT_CALL(flashDeviceMock, read)
 		.Times(5)
 		.WillRepeatedly(Return(0x12));
