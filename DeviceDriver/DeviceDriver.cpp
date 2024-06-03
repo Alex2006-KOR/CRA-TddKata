@@ -3,16 +3,20 @@
 
 const int READ_REPEATITION_MAX_NUM = 5;
 
+class ReadFailException : public std::exception {
+    char const* what() const override {
+        return "Read Different value from same Address";
+    }
+};
+
 DeviceDriver::DeviceDriver(FlashMemoryDevice* hardware)
     : m_hardware(hardware) {}
 
 int DeviceDriver::read(long address) {
     int ret = (int)(m_hardware->read(address));
-    for (unsigned int readIdx = 0; readIdx < READ_REPEATITION_MAX_NUM - 1; readIdx++) {
-        if ((int)(m_hardware->read(address)) != ret) {
-            throw std::runtime_error("Read Different value from same Address");
-        }
-    }
+    for (unsigned int rIdx = 0; rIdx < READ_REPEATITION_MAX_NUM - 1; rIdx++)
+        if ((int)(m_hardware->read(address)) != ret)
+            throw ReadFailException();
     return ret;
 }
 
